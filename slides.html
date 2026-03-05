@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Preparing Manuscripts for Journals</title>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-code: #1a1a1a;
+      --text: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-muted: #6a6a6a;
+      --accent: #006DAE;
+      --green: #4A9B67;
+      --orange: #e6a817;
+      --red: #e85555;
+      --border: #e0e0e0;
+    }
+
+    .reveal {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: clamp(24px, 2vw, 42px);
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* Graph paper background */
+    .reveal::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        linear-gradient(rgba(0, 109, 174, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 109, 174, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(0, 109, 174, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 109, 174, 0.015) 1px, transparent 1px);
+      background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle gradient overlay */
+    .reveal::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(0, 109, 174, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(74, 155, 103, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .reveal .slides { text-align: left; position: relative; z-index: 1; }
+
+    .reveal .slides section {
+      padding: 60px 80px;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .reveal h1 {
+      font-size: 2.4em;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text);
+      margin: 0 0 0.5em 0;
+    }
+
+    .reveal h2 {
+      font-size: 1.6em;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--text);
+      margin: 0 0 0.6em 0;
+    }
+    .reveal h2 strong {
+      background: linear-gradient(120deg, var(--accent), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .reveal p {
+      font-size: 1em;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0 0 1em 0;
+      max-width: 1100px;
+    }
+
+    .reveal .progress { height: 3px; background: var(--border); }
+    .reveal .progress span {
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65em;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.8em;
+    }
+
+    /* Smooth animations */
+    .reveal .slides section.present .label {
+      animation: fadeSlideDown 0.5s ease-out both;
+    }
+    .reveal .slides section.present h1,
+    .reveal .slides section.present h2 {
+      animation: fadeSlideDown 0.6s ease-out 0.1s both;
+    }
+    .reveal .slides section.present > p:not(.timer):not(.label),
+    .reveal .slides section.present > ul,
+    .reveal .slides section.present > ol,
+    .reveal .slides section.present > .cols,
+    .reveal .slides section.present > .grid-3 {
+      animation: fadeSlideUp 0.6s ease-out 0.2s both;
+    }
+    .reveal .slides section.present > .callout {
+      animation: fadeSlideUp 0.6s ease-out 0.3s both;
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeScale {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Fragment animations */
+    .reveal .fragment {
+      transition: all 0.35s ease-out;
+    }
+    .reveal .fragment:not(.visible) {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    .reveal .fragment.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lists */
+    .reveal ul, .reveal ol {
+      margin: 0;
+      padding-left: 1.2em;
+      max-width: 1100px;
+    }
+
+    .reveal li {
+      font-size: 1em;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin-bottom: 0.5em;
+    }
+    .reveal li strong { color: var(--text); }
+
+    /* Center */
+    .center {
+      align-items: center !important;
+      text-align: center !important;
+    }
+    .center * { text-align: center !important; }
+    .center p {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .center h2 { width: 100%; }
+    .center ul, .center ol {
+      display: inline-block;
+      text-align: left !important;
+    }
+
+    /* Section slides */
+    .section {
+      justify-content: flex-end;
+      padding-bottom: 140px !important;
+    }
+
+    /* Stats */
+    .stat {
+      font-size: 4em;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--text);
+    }
+    .stat .n { color: var(--accent); }
+    .stat .u {
+      font-size: 0.28em;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    /* Two column */
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+      margin-top: 1em;
+    }
+    .cols h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin: 0 0 0.5em 0;
+    }
+
+    /* Three column */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5em;
+      margin-top: 1em;
+      font-size: 0.95em;
+    }
+
+    /* Card */
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    /* Callout */
+    .callout {
+      background: rgba(0, 109, 174, 0.06);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 6px 6px 0;
+      margin: 1.2em 0;
+      max-width: 1100px;
+      transition: transform 0.3s ease, border-left-width 0.3s ease;
+    }
+    .callout:hover {
+      transform: translateX(4px);
+      border-left-width: 5px;
+    }
+    .callout p { margin: 0; color: var(--text); font-size: 1em; }
+
+    .callout-green {
+      background: rgba(74, 155, 103, 0.06);
+      border-left-color: var(--green);
+    }
+    .callout-warn {
+      background: rgba(230, 168, 23, 0.06);
+      border-left-color: var(--orange);
+    }
+    .callout-red {
+      background: rgba(232, 85, 85, 0.06);
+      border-left-color: var(--red);
+    }
+
+    /* Accent */
+    .accent { color: var(--accent); }
+    .green { color: var(--green); }
+
+    /* Dark slides */
+    .dark {
+      background: var(--bg-code) !important;
+      padding: 0 !important;
+    }
+    .dark::before, .dark::after { display: none !important; }
+    .dark h1, .dark h2 { color: #fff; }
+    .dark p { color: #aaa; }
+    .dark .label { color: var(--green); }
+    .dark .dark-content {
+      padding: 60px 80px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Section divider slides */
+    .section-bg {
+      justify-content: flex-end;
+      padding-bottom: 100px !important;
+    }
+    .section-bg::before, .section-bg::after { display: none; }
+    .section-bg .section-content {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 24px 40px;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: inline-block;
+    }
+    .section-bg h1 { color: #fff; margin: 0; font-size: 2.2em; }
+    .section-bg .label { color: rgba(255,255,255,0.7); margin-bottom: 0.4em; }
+    .section-bg p { color: rgba(255,255,255,0.85); margin-top: 0.5em; font-size: 1.2em; }
+
+    /* Gradient section slides */
+    .gradient-section {
+      justify-content: center;
+    }
+    .gradient-section::before, .gradient-section::after { display: none; }
+
+    /* Countdown timer */
+    .timer {
+      font-size: 8em;
+      font-weight: 600;
+      line-height: 1;
+      color: #fff !important;
+      background: var(--green);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s ease;
+      font-variant-numeric: tabular-nums;
+      padding: 0.35em 0.7em;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 10px 40px rgba(74, 155, 103, 0.35);
+    }
+    .timer:hover { transform: scale(1.02); box-shadow: 0 14px 50px rgba(74, 155, 103, 0.45); }
+    .timer.running { background: var(--green); color: #fff !important; }
+    .timer.warning { background: #e6a817; color: #fff !important; box-shadow: 0 10px 40px rgba(230, 168, 23, 0.35); }
+    .timer.expired { background: #e85555; color: #fff !important; animation: pulse 1s ease-in-out infinite; box-shadow: 0 10px 40px rgba(232, 85, 85, 0.35); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Emoji labels */
+    .emoji-label {
+      font-size: 1.8em;
+      display: inline-block;
+      margin-right: 0.3em;
+      vertical-align: middle;
+    }
+
+    /* Quote block */
+    .quote-block {
+      font-size: 1.3em;
+      font-style: italic;
+      color: var(--text);
+      border-left: 4px solid var(--accent);
+      padding: 0.8em 1.2em;
+      margin: 1em 0;
+      max-width: 900px;
+      background: rgba(0, 109, 174, 0.03);
+      border-radius: 0 6px 6px 0;
+    }
+    .quote-block .attribution {
+      font-style: normal;
+      font-size: 0.7em;
+      color: var(--text-muted);
+      margin-top: 0.5em;
+    }
+
+    /* Number highlight */
+    .big-number {
+      font-size: 3.5em;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    /* Steps */
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.85em;
+      margin-right: 0.5em;
+      flex-shrink: 0;
+    }
+
+    /* Monash logo placeholder */
+    .monash-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9em;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    /* Cost/value arrows */
+    .cost-arrow { font-size: 1.4em; color: var(--green); }
+    .value-arrow { font-size: 1.4em; color: var(--accent); }
+
+    .cost-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2em;
+      margin-top: 1em;
+    }
+    .cost-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+    }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ============================================================ -->
+<!-- TITLE -->
+<!-- ============================================================ -->
+<section class="section">
+  <p class="label">Workshop · 12 March 2026</p>
+  <h1>Preparing Manuscripts<br>for Journals</h1>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3em; text-align: center; max-width: 700px; margin-top: 1.5em;">
+    <div>
+      <p style="margin: 0;"><strong style="font-size: 1.1em;">Megan Farrelly</strong><br>
+      <span style="font-size: 0.85em; color: var(--text-muted);">Professor, Environmental Geography<br>Associate Dean of Graduate Research<br>Monash University</span></p>
+    </div>
+    <div>
+      <p style="margin: 0;"><strong style="font-size: 1.1em;">Charles Crabtree</strong><br>
+      <span style="font-size: 0.85em; color: var(--text-muted);">Senior Lecturer, School of Social Sciences<br>Monash University<br>Korea University</span></p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 2em;">
+    <p class="monash-logo">MONASH UNIVERSITY</p>
+  </div>
+</section>
+
+<!-- ACKNOWLEDGEMENT OF COUNTRY -->
+<section>
+  <p class="label">Acknowledgement of Country</p>
+  <p style="font-size: 1.4em; color: var(--text); line-height: 1.7; max-width: 900px;">
+    We wish to acknowledge the people of the <strong>Kulin Nations</strong>, on whose land we are gathered today.
+  </p>
+  <p style="font-size: 1.4em; color: var(--text); line-height: 1.7; max-width: 900px; margin-top: 0.8em;">
+    We pay our respects to their Elders, past, present, and emerging.
+  </p>
+</section>
+
+<!-- ABOUT US -->
+<section>
+  <p class="label">About Us</p>
+  <h2>Your workshop leaders</h2>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <h3 style="color: var(--accent);">Megan Farrelly</h3>
+      <ul>
+        <li><strong>Professor</strong>, Environmental Geography, Monash</li>
+        <li><strong>Associate Dean</strong> of Graduate Research, Faculty of Arts</li>
+        <li>84 publications, 5,000+ citations</li>
+        <li>Published in <em>Global Environmental Change</em>, <em>Environmental Science & Policy</em>, <em>Journal of Cleaner Production</em></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--green);">Charles Crabtree</h3>
+      <ul>
+        <li><strong>Senior Lecturer</strong>, School of Social Sciences, Monash</li>
+        <li><strong>Previously:</strong> Dartmouth, Stanford, Michigan</li>
+        <li>Published in <em>APSR</em>, <em>AJPS</em>, <em>JOP</em>, <em>PA</em>, <em>IO</em></li>
+        <li>Teaching article on navigating reviewer comments (with Jade Wong) under review at <em>PS</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS WORKSHOP -->
+<section>
+  <p class="label">Motivation</p>
+  <h2>The hidden curriculum</h2>
+  <p>Publishing is one of the most important skills in academia. It is also one of the least taught.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Graduate programs</strong> teach theory and methods — rarely how to navigate the publishing process</li>
+    <li class="fragment"><strong>Journal selection</strong> is learned through trial and error (often painful)</li>
+    <li class="fragment"><strong>Rejection</strong> is universal — but almost never discussed openly</li>
+    <li class="fragment"><strong>Response letters</strong> are a skill with enormous returns on investment</li>
+  </ul>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p>Between 85–90% of prominent scholars report having work rejected. This workshop gives you tools to handle the full cycle.</p>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+  <p class="label">Today</p>
+  <h2>What we'll cover</h2>
+  <ol style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Understanding rankings and strategies</strong> — where to submit and why</li>
+    <li class="fragment"><strong>Writing for the selected journal</strong> — adapting your manuscript</li>
+    <li class="fragment"><strong>The submission process</strong> — mechanics and peer review</li>
+    <li class="fragment"><strong>Dealing with rejections</strong> — strategy and resilience</li>
+  </ol>
+  <p class="fragment" style="margin-top: 1.2em; color: var(--text-muted);">Each section includes discussion and exercises. Please interrupt us.</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- PART 1: UNDERSTANDING RANKINGS AND STRATEGIES -->
+<!-- ============================================================ -->
+<section data-background-color="#0d1b2a" data-background-gradient="linear-gradient(135deg, #0d1b2a 0%, #1a1a1a 50%, #0a192f 100%)" class="gradient-section">
+  <p class="label" style="color: var(--green);">Part 1</p>
+  <h2 style="font-size: 2.8em; line-height: 1.2; margin-bottom: 0.6em; color: #fff;">Understanding Rankings<br>& <span style="background: linear-gradient(120deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Strategies</span></h2>
+  <p style="font-size: 1.3em; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 900px;">
+    Where you submit matters as much as what you submit.
+  </p>
+</section>
+
+<!-- WHY JOURNAL CHOICE MATTERS -->
+<section>
+  <p class="label">Rankings</p>
+  <h2>Why journal choice matters</h2>
+  <p>The wrong journal wastes months. The right journal changes careers.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Audience</strong> — your paper reaches the people who care about it</li>
+    <li class="fragment"><strong>Credibility</strong> — peer review at a respected venue signals quality</li>
+    <li class="fragment"><strong>Speed</strong> — good fit reduces desk rejection and review time</li>
+    <li class="fragment"><strong>Career impact</strong> — tenure committees, grant panels, and collaborators all notice where you publish</li>
+  </ul>
+  <div class="callout-warn callout fragment" style="margin-top: 1em;">
+    <p><strong>Common mistake:</strong> Defaulting to the highest-ranked journal without considering fit. A well-placed article in a field journal often outperforms a poorly-placed article in a generalist.</p>
+  </div>
+</section>
+
+<!-- UNDERSTANDING METRICS -->
+<section>
+  <p class="label">Rankings</p>
+  <h2>Journal metrics: a field guide</h2>
+  <div class="grid-3" style="margin-top: 0.8em;">
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <h3 style="font-size: 1.05em; color: var(--accent); margin-bottom: 0.5em;">Impact Factor</h3>
+      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Average citations over 2 years. From Clarivate/Web of Science. The most widely cited metric, but favours certain fields.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h3 style="font-size: 1.05em; color: var(--green); margin-bottom: 0.5em;">SJR / Scopus</h3>
+      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Weighted citations over 3 years. Considers prestige of citing journal. Broader coverage than JCR.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid #A855F7;">
+      <h3 style="font-size: 1.05em; color: #A855F7; margin-bottom: 0.5em;">h5-index</h3>
+      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Google Scholar metric: h papers with h+ citations in 5 years. Good for emerging or interdisciplinary journals.</p>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1.2em;">
+    <p><strong>Key insight:</strong> Metrics vary wildly between disciplines. Only compare journals within the same field. A 2.0 Impact Factor is excellent in some subfields and mediocre in others.</p>
+  </div>
+</section>
+
+<!-- BEYOND METRICS -->
+<section>
+  <p class="label">Rankings</p>
+  <h2>Beyond the numbers</h2>
+  <p>Metrics tell part of the story. These factors matter just as much:</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Scope and audience</strong> — Does the journal publish work like yours? Who reads it?</li>
+    <li class="fragment"><strong>Turnaround time</strong> — Median days from submission to first decision varies enormously (30 to 300+)</li>
+    <li class="fragment"><strong>Acceptance rate</strong> — Top generalists reject 90–95%. Field journals: 70–85%</li>
+    <li class="fragment"><strong>Open access options</strong> — Does it offer OA? At what cost? Does your institution have an agreement?</li>
+    <li class="fragment"><strong>Reputation among peers</strong> — Ask your advisors and co-authors where they'd send this paper</li>
+  </ul>
+</section>
+
+<!-- GENERALIST VS SPECIALIST -->
+<section>
+  <p class="label">Strategy</p>
+  <h2>Generalist vs. specialist journals</h2>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <h3 style="color: var(--accent);">Generalist (discipline-wide)</h3>
+      <ul>
+        <li><strong>Higher visibility</strong> across the discipline</li>
+        <li><strong>Lower acceptance</strong> (5–10%)</li>
+        <li><strong>Broader audience</strong> but harder to match reviewers</li>
+        <li>Examples: <em>APSR, AJS, Global Environmental Change</em></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--green);">Specialist (subfield/topic)</h3>
+      <ul>
+        <li><strong>Expert audience</strong> who deeply engage</li>
+        <li><strong>Higher acceptance</strong> (15–30%)</li>
+        <li><strong>Faster reviews</strong> from specialists</li>
+        <li>Examples: <em>Environmental Science & Policy, Political Behavior, J. Cleaner Production</em></li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout-green callout fragment" style="margin-top: 1em;">
+    <p><strong>Neither is inherently better.</strong> Match the journal to the paper's contribution. A methodological advance belongs in a methods journal. A finding about water governance belongs in an environmental policy journal.</p>
+  </div>
+</section>
+
+<!-- BUILDING YOUR TARGET LIST -->
+<section>
+  <p class="label">Strategy</p>
+  <h2>Building a target journal list</h2>
+  <p>Before you write, identify 3–5 journals. Rank them in order of preference.</p>
+  <ol style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Check your references</strong> — Where are the papers you cite published? Those journals are your natural homes.</li>
+    <li class="fragment"><strong>Ask mentors and co-authors</strong> — "Where would you send this?" is the single most useful question.</li>
+    <li class="fragment"><strong>Read recent issues</strong> — Skim the last 2–3 issues. Does your paper fit the conversation?</li>
+    <li class="fragment"><strong>Check metrics and speed</strong> — SCImago, JCR, Google Scholar Metrics</li>
+    <li class="fragment"><strong>Verify legitimacy</strong> — Is it indexed in Scopus/WoS? Beware predatory journals (use Cabells or Think.Check.Submit)</li>
+  </ol>
+</section>
+
+<!-- SUBMISSION STRATEGY -->
+<section>
+  <p class="label">Strategy</p>
+  <h2>The submission ladder</h2>
+  <p>Many scholars follow a "ladder" strategy:</p>
+  <div style="margin-top: 1em;">
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">1</span>
+      <span><strong>Aspirational journal</strong> — your top choice. May desk reject, but worth trying.</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">2</span>
+      <span><strong>Strong match</strong> — excellent fit, reasonable acceptance rate.</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">3</span>
+      <span><strong>Good alternative</strong> — solid journal, perhaps broader scope.</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">4</span>
+      <span><strong>Safety option</strong> — newer or niche journal that regularly publishes your type of work.</span>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p><strong>Critical rule:</strong> Submit to only one journal at a time. Dual submission is an ethical violation that can result in being blacklisted.</p>
+  </div>
+</section>
+
+<!-- EXERCISE 1: JOURNAL FIT -->
+<section class="center">
+  <p class="label">Exercise</p>
+  <h2>Find your journal</h2>
+  <p style="font-size: 1.15em; color: var(--text);">Think about a paper you're currently working on (or want to write).</p>
+  <div class="cols" style="max-width: 900px; margin: 1em auto 0;">
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <h3 style="color: var(--accent);">Individually (3 min)</h3>
+      <p style="margin: 0;">Identify 3 potential journals. Write down why each fits.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h3 style="color: var(--green);">In pairs (3 min)</h3>
+      <p style="margin: 0;">Challenge your partner: is the fit real? Where did the papers you cite publish?</p>
+    </div>
+  </div>
+  <p class="timer" data-minutes="6" style="font-size: 2em; margin-top: 1em;">6:00</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- PART 2: WRITING FOR THE SELECTED JOURNAL -->
+<!-- ============================================================ -->
+<section data-background-color="#0d1b2a" data-background-gradient="linear-gradient(135deg, #0d1b2a 0%, #1a1a1a 50%, #0a192f 100%)" class="gradient-section">
+  <p class="label" style="color: var(--green);">Part 2</p>
+  <h2 style="font-size: 2.8em; line-height: 1.2; margin-bottom: 0.6em; color: #fff;">Writing for the<br><span style="background: linear-gradient(120deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Selected Journal</span></h2>
+  <p style="font-size: 1.3em; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 900px;">
+    A manuscript written for one journal rarely fits another without adaptation.
+  </p>
+</section>
+
+<!-- READ THE JOURNAL -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Read the journal before you write for it</h2>
+  <p>This is the single most common piece of advice from editors — and the most commonly ignored.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Read 5–10 recent articles</strong> in the journal, especially those close to your topic</li>
+    <li class="fragment"><strong>Note structure</strong> — Do they use subheadings? How long are introductions? Where do hypotheses appear?</li>
+    <li class="fragment"><strong>Note methods</strong> — What methods predominate? What evidence standards apply?</li>
+    <li class="fragment"><strong>Note citation patterns</strong> — Which bodies of literature do published papers engage with?</li>
+    <li class="fragment"><strong>Note length</strong> — Word limits vary dramatically (3,000 to 12,000+)</li>
+  </ul>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p><strong>Example:</strong> <em>Global Environmental Change</em> publishes interdisciplinary work with extensive empirical detail. <em>PS: Political Science & Politics</em> is shorter, practice-oriented, and accessible. Same topic, completely different manuscripts.</p>
+  </div>
+</section>
+
+<!-- MANUSCRIPT STRUCTURE -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Manuscript structure: the standard template</h2>
+  <p>Most social science journals expect some version of this:</p>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <ol>
+        <li class="fragment"><strong>Title</strong> — concise, descriptive, searchable</li>
+        <li class="fragment"><strong>Abstract</strong> — 150–250 words; question, method, finding</li>
+        <li class="fragment"><strong>Introduction</strong> — puzzle, contribution, roadmap</li>
+        <li class="fragment"><strong>Literature / Theory</strong> — what we know, what's missing</li>
+        <li class="fragment"><strong>Research design</strong> — data, methods, identification</li>
+      </ol>
+    </div>
+    <div>
+      <ol start="6">
+        <li class="fragment"><strong>Results</strong> — main findings, robustness checks</li>
+        <li class="fragment"><strong>Discussion</strong> — what this means</li>
+        <li class="fragment"><strong>Conclusion</strong> — implications, limitations, future research</li>
+        <li class="fragment"><strong>References</strong> — every citation, correctly formatted</li>
+        <li class="fragment"><strong>Appendices</strong> — supplemental analyses, additional tables</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- THE INTRODUCTION -->
+<section>
+  <p class="label">Writing</p>
+  <h2>The introduction: your 90-second pitch</h2>
+  <p>Reviewers decide their initial impression in the first two pages. Make them count.</p>
+  <div style="margin-top: 1em;">
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">1</span>
+      <span><strong>The puzzle</strong> — What is the question? Why does it matter? Open with the research question.</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">2</span>
+      <span><strong>The gap</strong> — What do we not know? What has previous research missed?</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">3</span>
+      <span><strong>The contribution</strong> — What does this paper add? Be specific.</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num">4</span>
+      <span><strong>The preview</strong> — How will you answer the question? Brief roadmap.</span>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p><strong>Tip:</strong> Write the introduction last. You can't pitch the paper convincingly until you know exactly what you've found.</p>
+  </div>
+</section>
+
+<!-- TITLE AND ABSTRACT -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Title and abstract: your paper's front door</h2>
+  <p>Most readers will only ever see these. Editors use them to select reviewers. Search engines index them.</p>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <h3 style="color: var(--accent);">Title</h3>
+      <ul>
+        <li>Concise and descriptive</li>
+        <li>Include key variables or concepts</li>
+        <li>Avoid jargon that limits discoverability</li>
+        <li>Consider including the finding ("X increases Y" vs. "A study of X")</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--green);">Abstract</h3>
+      <ul>
+        <li>State the research question first</li>
+        <li>Name the method and data</li>
+        <li>Report the key finding</li>
+        <li>State the implication</li>
+        <li>Stay under word limit (usually 150–250)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- THE COVER LETTER -->
+<section>
+  <p class="label">Writing</p>
+  <h2>The cover letter</h2>
+  <p>Short, professional, and purposeful. Editors read hundreds — make yours count.</p>
+  <div style="margin-top: 0.8em;">
+    <div class="fragment" style="margin-bottom: 0.8em;">
+      <strong>Paragraph 1:</strong> Title, authors, what the paper does (2–3 sentences).
+    </div>
+    <div class="fragment" style="margin-bottom: 0.8em;">
+      <strong>Paragraph 2:</strong> Why this journal — connect your contribution to the journal's scope and recent conversation.
+    </div>
+    <div class="fragment" style="margin-bottom: 0.8em;">
+      <strong>Paragraph 3:</strong> Any required declarations — not previously published, not under review elsewhere, ethics approval, data availability.
+    </div>
+    <div class="fragment" style="margin-bottom: 0.8em;">
+      <strong>Optional:</strong> Suggest 2–5 reviewers (some journals require this, some don't allow it). Choose scholars who know the field but aren't close collaborators.
+    </div>
+  </div>
+  <div class="callout-warn callout fragment" style="margin-top: 1em;">
+    <p><strong>Common mistake:</strong> Sending the same generic cover letter to every journal. Editors notice immediately.</p>
+  </div>
+</section>
+
+<!-- ANONYMIZATION -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Anonymization for blind review</h2>
+  <p>Most social science journals use double-blind review. Anonymization mistakes cause desk rejection.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Remove author names</strong> from the manuscript body, headers, footers</li>
+    <li class="fragment"><strong>Remove identifying self-citations</strong> — replace "As we showed in Crabtree (2024)" with "As shown in [Author] (2024)"</li>
+    <li class="fragment"><strong>Check document properties</strong> — Word/PDF metadata may contain your name</li>
+    <li class="fragment"><strong>Separate title page</strong> — author info, affiliations, acknowledgments on a separate file</li>
+    <li class="fragment"><strong>Check supplementary materials</strong> — code files, data documentation may reveal identity</li>
+  </ul>
+</section>
+
+<!-- COMMON FORMATTING PITFALLS -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Common formatting pitfalls</h2>
+  <div class="grid-3" style="margin-top: 0.8em;">
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3 style="color: var(--red); margin-bottom: 0.3em;">References</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Wrong citation style. Missing DOIs. Cited but not listed (or vice versa). Use a reference manager.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3 style="color: var(--red); margin-bottom: 0.3em;">Word count</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Over the limit = instant desk rejection at many journals. Count carefully. Some include references, some don't.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3 style="color: var(--red); margin-bottom: 0.3em;">Figures & tables</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Low resolution (need 300+ DPI). Not numbered sequentially. Placed incorrectly. Check if the journal wants them inline or at the end.</p>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1.2em;">
+    <p><strong>Pro tip:</strong> Read the author guidelines fully before your final formatting pass. Many journals now accept "free format" submissions — but read carefully to confirm.</p>
+  </div>
+</section>
+
+<!-- EXERCISE 2 -->
+<section class="center">
+  <p class="label">Exercise</p>
+  <h2>Abstract autopsy</h2>
+  <p style="font-size: 1.15em; color: var(--text);">Pull up the abstract of a paper you've recently read (or written).</p>
+  <div class="cols" style="max-width: 900px; margin: 1em auto 0;">
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <h3 style="color: var(--accent);">Diagnose (3 min)</h3>
+      <p style="margin: 0;">Does it state the research question? Name the method? Report the finding? State the implication?</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h3 style="color: var(--green);">Discuss (3 min)</h3>
+      <p style="margin: 0;">Share with a partner. Could you improve it? What's missing?</p>
+    </div>
+  </div>
+  <p class="timer" data-minutes="6" style="font-size: 2em; margin-top: 1em;">6:00</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- PART 3: THE SUBMISSION PROCESS -->
+<!-- ============================================================ -->
+<section data-background-color="#0d1b2a" data-background-gradient="linear-gradient(135deg, #0d1b2a 0%, #1a1a1a 50%, #0a192f 100%)" class="gradient-section">
+  <p class="label" style="color: var(--green);">Part 3</p>
+  <h2 style="font-size: 2.8em; line-height: 1.2; margin-bottom: 0.6em; color: #fff;">The Submission<br><span style="background: linear-gradient(120deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Process</span></h2>
+  <p style="font-size: 1.3em; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 900px;">
+    From "submit" to decision — what actually happens.
+  </p>
+</section>
+
+<!-- BEFORE YOU HIT SUBMIT -->
+<section>
+  <p class="label">Submission</p>
+  <h2>Before you hit submit</h2>
+  <p>A pre-submission checklist saves heartache:</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>All co-authors have read and approved</strong> the manuscript</li>
+    <li class="fragment"><strong>Author guidelines followed</strong> — format, word count, reference style, figure specs</li>
+    <li class="fragment"><strong>Properly anonymized</strong> — names, self-citations, metadata</li>
+    <li class="fragment"><strong>Ethics statement</strong> included if human subjects research</li>
+    <li class="fragment"><strong>Data availability statement</strong> — increasingly required</li>
+    <li class="fragment"><strong>Cover letter</strong> tailored to this specific journal</li>
+    <li class="fragment"><strong>Supplementary materials</strong> uploaded separately if required</li>
+  </ul>
+</section>
+
+<!-- WHAT HAPPENS AFTER -->
+<section>
+  <p class="label">Submission</p>
+  <h2>What happens after you submit</h2>
+  <div style="margin-top: 1em;">
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">1</span>
+      <span><strong>Editorial triage</strong> — Editor-in-chief checks scope and quality. 25–60% of papers are desk rejected at this stage. Days to weeks.</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">2</span>
+      <span><strong>Reviewer assignment</strong> — Editor selects 2–3 reviewers. This can take weeks (finding willing reviewers is increasingly hard).</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">3</span>
+      <span><strong>Peer review</strong> — Reviewers evaluate methodology, contribution, writing. Usually 4–12 weeks.</span>
+    </div>
+    <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">4</span>
+      <span><strong>Decision</strong> — Accept (rare), revise & resubmit, or reject.</span>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES OF DECISIONS -->
+<section>
+  <p class="label">Submission</p>
+  <h2>Types of decisions</h2>
+  <div class="grid-3" style="margin-top: 0.8em;">
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h3 style="color: var(--green); margin-bottom: 0.3em;">Accept</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Extremely rare on first submission. Celebrate accordingly.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <h3 style="color: var(--accent); margin-bottom: 0.3em;">Revise & Resubmit</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;"><strong>This is good news.</strong> The journal sees potential. Major R&R vs. minor R&R: both mean the door is open.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3 style="color: var(--red); margin-bottom: 0.3em;">Reject</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">With or without review. The most common outcome. It is not the end.</p>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1.2em;">
+    <p>An R&R is <strong>not a rejection</strong>. Strategically revised R&R papers have high acceptance rates. Treat it as an investment, not a burden.</p>
+  </div>
+</section>
+
+<!-- RESPONDING TO R&R -->
+<section>
+  <p class="label">Submission</p>
+  <h2>Responding to Revise & Resubmit</h2>
+  <p>Your response letter is as important as your revised manuscript.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Address every point</strong> — don't skip any. You need not agree with all, but you must respond to all.</li>
+    <li class="fragment"><strong>Be respectful</strong> — reviewers volunteered their time. Thank them genuinely.</li>
+    <li class="fragment"><strong>Be specific</strong> — "We added a paragraph on p. 14" beats "We addressed this concern."</li>
+    <li class="fragment"><strong>Organize clearly</strong> — number each comment and your response. Use formatting to separate reviewer text from yours.</li>
+    <li class="fragment"><strong>Show your work</strong> — quote the new text you've added. Include new analyses.</li>
+    <li class="fragment"><strong>Disagree respectfully</strong> — "We appreciate this suggestion. However, we maintain X because Y" — with evidence.</li>
+  </ul>
+</section>
+
+<!-- RESPONSE LETTER: DO vs DON'T -->
+<section>
+  <p class="label">Submission</p>
+  <h2>Response letter language</h2>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div class="card" style="border-left: 3px solid var(--red);">
+      <h3 style="color: var(--red);">Don't</h3>
+      <ul style="padding-left: 1em;">
+        <li>"The reviewer is incorrect."</li>
+        <li>"We already addressed this."</li>
+        <li>"This comment is not helpful."</li>
+        <li>"We disagree."</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left: 3px solid var(--green);">
+      <h3 style="color: var(--green);">Do</h3>
+      <ul style="padding-left: 1em;">
+        <li>"Thank you for raising this important point. We now clarify on p. 12 that..."</li>
+        <li>"We appreciate this suggestion. We have added [specific text]."</li>
+        <li>"We understand the concern. Our rationale for the current approach is..."</li>
+        <li>"Following this excellent suggestion, we now include a robustness check in Appendix B."</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p>Editors report that tone is a major factor in decisions. A collaborative, professional response signals a reliable author.</p>
+  </div>
+</section>
+
+<!-- EXERCISE 3 -->
+<section class="center">
+  <p class="label">Exercise</p>
+  <h2>Write a response</h2>
+  <p style="font-size: 1.15em; color: var(--text);">Reviewer comment: "The theoretical framework is underdeveloped. The paper needs to better connect to the existing literature on [your topic]."</p>
+  <div class="cols" style="max-width: 900px; margin: 1em auto 0;">
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <h3 style="color: var(--accent);">Draft (3 min)</h3>
+      <p style="margin: 0;">Write a response to this comment as if it appeared on your own paper.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h3 style="color: var(--green);">Discuss (3 min)</h3>
+      <p style="margin: 0;">Share with your partner. Is the tone right? Is it specific enough?</p>
+    </div>
+  </div>
+  <p class="timer" data-minutes="6" style="font-size: 2em; margin-top: 1em;">6:00</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- PART 4: DEALING WITH REJECTIONS -->
+<!-- ============================================================ -->
+<section data-background-color="#0d1b2a" data-background-gradient="linear-gradient(135deg, #0d1b2a 0%, #1a1a1a 50%, #0a192f 100%)" class="gradient-section">
+  <p class="label" style="color: var(--green);">Part 4</p>
+  <h2 style="font-size: 2.8em; line-height: 1.2; margin-bottom: 0.6em; color: #fff;">Dealing with<br><span style="background: linear-gradient(120deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rejections</span></h2>
+  <p style="font-size: 1.3em; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 900px;">
+    The part no one talks about — but everyone experiences.
+  </p>
+</section>
+
+<!-- REJECTION IS NORMAL -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>Rejection is normal</h2>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <div class="big-number">85–90%</div>
+      <p style="margin-top: 0.5em;">of prominent scholars report having work rejected</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <div class="big-number">85%</div>
+      <p style="margin-top: 0.5em;">of rejected papers eventually publish elsewhere</p>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1.5em;">
+    <p><strong>An article of mine was rejected eight times before being published.</strong> — Political science professor, quoted in the literature on academic resilience. This is not unusual.</p>
+  </div>
+</section>
+
+<!-- THE SHADOW CV -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>The shadow CV</h2>
+  <p style="font-size: 1.15em; color: var(--text); line-height: 1.6;">
+    Behind every published paper is a trail of rejections you don't see.
+  </p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment">That article in a top journal? Rejected three times before.</li>
+    <li class="fragment">That grant? Countless revisions and rejections.</li>
+    <li class="fragment">Your advisor's CV? Full of invisible failures.</li>
+  </ul>
+  <p class="fragment" style="font-size: 1.2em; color: var(--text); margin-top: 1.2em; font-weight: 500;">
+    The difference between published and unpublished scholars is not talent. It's persistence.
+  </p>
+</section>
+
+<!-- TYPES OF REJECTION -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>Types of rejection</h2>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div class="card" style="border-left: 4px solid var(--orange);">
+      <h3 style="color: var(--orange); margin-bottom: 0.3em;">Desk rejection</h3>
+      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Without peer review. Usually: scope mismatch, formatting errors, or quality below threshold. Often fast (days to weeks). <strong>Don't take it personally</strong> — try to learn what went wrong.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3 style="color: var(--red); margin-bottom: 0.3em;">Rejection after review</h3>
+      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Reviewers identified substantive issues. <strong>This is valuable feedback.</strong> Read it carefully (after a few days). Use it to improve before resubmitting elsewhere.</p>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p>Possible reasons for desk rejection: wrong scope, poor English, inappropriate methodology, word count violation, failed anonymization. All of these are fixable.</p>
+  </div>
+</section>
+
+<!-- STRATEGIC RESPONSE TO REJECTION -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>Three strategic options after rejection</h2>
+  <div style="margin-top: 1em;">
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">1</span>
+      <div>
+        <strong>Resubmit unchanged</strong>
+        <p style="margin: 0.3em 0 0; color: var(--text-secondary);">When: reviewers misunderstood your project or wanted inappropriate changes. Risk: same reviewer may see it again, especially in small fields.</p>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">2</span>
+      <div>
+        <strong>Make selective revisions</strong> <span style="color: var(--green); font-weight: 600;">← Usually best</span>
+        <p style="margin: 0.3em 0 0; color: var(--text-secondary);">Address genuine weaknesses that multiple reviewers flagged. Ignore peripheral preferences. Distinguish real problems from individual taste.</p>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">3</span>
+      <div>
+        <strong>Address everything</strong>
+        <p style="margin: 0.3em 0 0; color: var(--text-secondary);">Caution: next journal = different reviewers = different preferences. Overfitting to one set of comments produces incoherent work that satisfies no one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE EMOTIONAL SIDE -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>The emotional reality</h2>
+  <p>Rejection feels personal. It isn't — but that doesn't make it hurt less.</p>
+  <ol style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Read the decision letter. Then put it away.</strong> What seems devastating today will feel manageable in a few days.</li>
+    <li class="fragment"><strong>Allow yourself to feel frustrated.</strong> You're human. This is normal. Don't pretend it doesn't sting.</li>
+    <li class="fragment"><strong>After a few days, reread strategically.</strong> Which comments recur? Which point to genuine weaknesses?</li>
+    <li class="fragment"><strong>Separate the paper from yourself.</strong> Rejection of your manuscript is not rejection of you.</li>
+    <li class="fragment"><strong>Talk to someone.</strong> Advisors, colleagues, peers — almost everyone has been through this. Share it.</li>
+  </ol>
+</section>
+
+<!-- WHEN TO LET GO -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>When to persist vs. when to let go</h2>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <h3 style="color: var(--green);">Keep going when:</h3>
+      <ul>
+        <li>Reviewers disagree with each other</li>
+        <li>Feedback is about framing, not substance</li>
+        <li>You have a plan to address the weaknesses</li>
+        <li>You still believe in the core question</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--red);">Consider stopping when:</h3>
+      <ul>
+        <li>Multiple reviewers across journals identify the same <em>methodological</em> flaw</li>
+        <li>The data cannot support the claims</li>
+        <li>You no longer believe the finding is valid</li>
+        <li>3+ rejections with converging feedback</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p><strong>Letting go is not failure.</strong> It's judgment. Some of the best scholars know when to move on to the next project.</p>
+  </div>
+</section>
+
+<!-- PREDATORY JOURNALS WARNING -->
+<section>
+  <p class="label">Warning</p>
+  <h2>A word on predatory journals</h2>
+  <p>When you're frustrated with rejections, beware the easy path.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Red flags:</strong> unsolicited email invitations, guaranteed fast acceptance, vague scope, suspiciously low fees</li>
+    <li class="fragment"><strong>Check:</strong> Is the journal indexed in Scopus or Web of Science?</li>
+    <li class="fragment"><strong>Use:</strong> <a href="https://thinkchecksubmit.org" target="_blank" style="color: var(--accent);">Think.Check.Submit</a> — a free checklist to evaluate journals</li>
+    <li class="fragment"><strong>Ask:</strong> Have respected scholars in your field published there?</li>
+  </ul>
+  <div class="callout-red callout fragment" style="margin-top: 1em;">
+    <p><strong>Publishing in a predatory journal can harm your reputation more than not publishing at all.</strong> Patience with legitimate journals is always the better strategy.</p>
+  </div>
+</section>
+
+<!-- BUILDING RESILIENCE -->
+<section>
+  <p class="label">Resilience</p>
+  <h2>Building a publishing practice</h2>
+  <p>Publishing is not a single event. It's a practice, like writing itself.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Have multiple projects</strong> — when one paper is under review, work on another. Don't wait.</li>
+    <li class="fragment"><strong>Keep a submission log</strong> — track where you submitted, when, decisions received, and next steps.</li>
+    <li class="fragment"><strong>Build a review habit</strong> — reviewing for journals makes you a better writer and builds professional relationships.</li>
+    <li class="fragment"><strong>Find a writing group</strong> — regular accountability and peer feedback before submission.</li>
+    <li class="fragment"><strong>Read widely</strong> — reading good writing makes you a better writer.</li>
+  </ul>
+</section>
+
+<!-- EXERCISE 4 -->
+<section class="center">
+  <p class="label">Exercise</p>
+  <h2>Rejection triage</h2>
+  <p style="font-size: 1.15em; color: var(--text);">Think about a paper you've had rejected (or imagine one).</p>
+  <div class="cols" style="max-width: 900px; margin: 1em auto 0;">
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <h3 style="color: var(--accent);">Plan (3 min)</h3>
+      <p style="margin: 0;">What would you do next? Which strategic option would you choose? Where would you send it?</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h3 style="color: var(--green);">Discuss (3 min)</h3>
+      <p style="margin: 0;">Share your plan. Does your partner agree? Would they do something different?</p>
+    </div>
+  </div>
+  <p class="timer" data-minutes="6" style="font-size: 2em; margin-top: 1em;">6:00</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- SUMMARY -->
+<!-- ============================================================ -->
+<section data-background-color="#0d1b2a" data-background-gradient="linear-gradient(135deg, #0d1b2a 0%, #1a1a1a 50%, #0a192f 100%)" class="gradient-section">
+  <p class="label" style="color: var(--green);">Wrapping Up</p>
+  <h2 style="font-size: 2.8em; line-height: 1.2; margin-bottom: 0.6em; color: #fff;">Summary &<br><span style="background: linear-gradient(120deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Principles</span></h2>
+</section>
+
+<!-- WHAT GAINS VALUE -->
+<section>
+  <p class="label">Summary</p>
+  <h2>What makes a publishable paper</h2>
+  <div class="cost-grid" style="margin-top: 1.2em;">
+    <div class="cost-item fragment"><span class="value-arrow">↑</span> <span><strong>A clear question</strong><br><span style="font-size: 0.9em; color: var(--text-muted);">Answerable, important, and specific</span></span></div>
+    <div class="cost-item fragment"><span class="value-arrow">↑</span> <span><strong>A genuine contribution</strong><br><span style="font-size: 0.9em; color: var(--text-muted);">Something new — theory, method, or evidence</span></span></div>
+    <div class="cost-item fragment"><span class="value-arrow">↑</span> <span><strong>Rigorous methods</strong><br><span style="font-size: 0.9em; color: var(--text-muted);">Appropriate design, transparent analysis</span></span></div>
+    <div class="cost-item fragment"><span class="value-arrow">↑</span> <span><strong>Journal fit</strong><br><span style="font-size: 0.9em; color: var(--text-muted);">Right audience, right conversation</span></span></div>
+    <div class="cost-item fragment"><span class="value-arrow">↑</span> <span><strong>Clear writing</strong><br><span style="font-size: 0.9em; color: var(--text-muted);">Accessible, concise, well-structured</span></span></div>
+    <div class="cost-item fragment"><span class="value-arrow">↑</span> <span><strong>Persistence</strong><br><span style="font-size: 0.9em; color: var(--text-muted);">Strategic revision and resubmission</span></span></div>
+  </div>
+</section>
+
+<!-- FIVE PRINCIPLES -->
+<section>
+  <p class="label">Principles</p>
+  <h2>Five principles to take home</h2>
+  <ol style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Choose the journal first.</strong> Write for the audience, not the other way around.</li>
+    <li class="fragment"><strong>Read the journal.</strong> Understand its norms before you submit.</li>
+    <li class="fragment"><strong>Invest in the response letter.</strong> It is as important as the paper itself.</li>
+    <li class="fragment"><strong>Use rejection strategically.</strong> Free feedback from experts. Take what improves the paper.</li>
+    <li class="fragment"><strong>Keep going.</strong> The difference between published and unpublished is persistence, not brilliance.</li>
+  </ol>
+</section>
+
+<!-- RECOMMENDED RESOURCES -->
+<section>
+  <p class="label">Resources</p>
+  <h2>Further reading</h2>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <h3 style="color: var(--accent);">On writing and submission</h3>
+      <ul style="font-size: 0.9em;">
+        <li>Belcher, W. L. <em>Writing Your Journal Article in Twelve Weeks</em></li>
+        <li>Silvia, P. J. <em>How to Write a Lot</em></li>
+        <li>Sage: <a href="https://www.sagepub.com/journals/information-for-authors/preparing-your-manuscript" target="_blank" style="color: var(--accent);">Preparing Your Manuscript</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--green);">On peer review and rejection</h3>
+      <ul style="font-size: 0.9em;">
+        <li>Noble (2017). Ten simple rules for writing a response to reviewers. <em>PLOS Comp. Bio.</em></li>
+        <li>Walker (2018). Rejection of a manuscript and career resilience. <em>PS</em></li>
+        <li>Crabtree & Wong (forthcoming). Navigating reviewer comments. <em>PS</em></li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout" style="margin-top: 1em;">
+    <p><strong>Tools:</strong> SCImago (<a href="https://www.scimagojr.com" target="_blank" style="color: var(--accent);">scimagojr.com</a>), Google Scholar Metrics, Think.Check.Submit (<a href="https://thinkchecksubmit.org" target="_blank" style="color: var(--accent);">thinkchecksubmit.org</a>), Journal Citation Reports</p>
+  </div>
+</section>
+
+<!-- DISCUSSION -->
+<section>
+  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div>
+      <p class="label">Discussion</p>
+      <h2>Questions for the room</h2>
+      <ul style="margin-top: 0.6em; font-size: 1.3em; max-width: 900px;">
+        <li style="margin-bottom: 0.6em;">What has been your biggest publishing challenge?</li>
+        <li style="margin-bottom: 0.6em;">What's the best (or worst) reviewer feedback you've received?</li>
+        <li style="margin-bottom: 0.6em;">How do you decide when to resubmit vs. revise vs. shelve a paper?</li>
+        <li>What norms should we adopt around open access and preprints?</li>
+      </ul>
+    </div>
+    <p class="timer" data-minutes="15" style="font-size: 2em;">15:00</p>
+  </div>
+</section>
+
+<!-- END -->
+<section class="section">
+  <h1>Thank you</h1>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3em; text-align: center; max-width: 800px; margin-top: 1.2em;">
+    <div>
+      <p style="margin: 0;"><strong>Megan Farrelly</strong><br>
+      <span style="font-size: 0.85em; color: var(--text-muted);">Professor, Environmental Geography<br>Associate Dean of Graduate Research<br>Faculty of Arts, Monash University</span><br>
+      <a href="mailto:megan.farrelly@monash.edu" style="color: var(--accent); font-size: 0.9em;">megan.farrelly@monash.edu</a>
+      </p>
+    </div>
+    <div>
+      <p style="margin: 0;"><strong>Charles Crabtree</strong><br>
+      <span style="font-size: 0.85em; color: var(--text-muted);">Senior Lecturer, School of Social Sciences<br>Monash University & Korea University</span><br>
+      <a href="mailto:charles.crabtree@monash.edu" style="color: var(--accent); font-size: 0.9em;">charles.crabtree@monash.edu</a> · <a href="https://charlescrabtree.com" target="_blank" style="color: var(--accent); font-size: 0.9em;">charlescrabtree.com</a>
+      </p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 2em;">
+    <p class="monash-logo">MONASH UNIVERSITY</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@4.5.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+    progress: true,
+    center: false,
+    width: 1920,
+    height: 1080,
+    margin: 0
+  });
+
+  // Countdown timers
+  document.querySelectorAll('.timer').forEach(function(el) {
+    var totalSeconds = parseInt(el.getAttribute('data-minutes')) * 60;
+    var remaining = totalSeconds;
+    var interval = null;
+    var state = 'idle';
+
+    function fmt(s) {
+      var m = Math.floor(s / 60);
+      var sec = s % 60;
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    el.textContent = fmt(remaining);
+
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      if (state === 'idle') {
+        state = 'running';
+        el.classList.add('running');
+        interval = setInterval(function() {
+          remaining--;
+          el.textContent = fmt(remaining);
+          if (remaining <= 120 && remaining > 0) {
+            el.classList.remove('running');
+            el.classList.add('warning');
+          }
+          if (remaining <= 0) {
+            clearInterval(interval);
+            el.textContent = '0:00';
+            el.classList.remove('running', 'warning');
+            el.classList.add('expired');
+            state = 'expired';
+          }
+        }, 1000);
+      } else {
+        clearInterval(interval);
+        remaining = totalSeconds;
+        el.textContent = fmt(remaining);
+        el.classList.remove('running', 'warning', 'expired');
+        state = 'idle';
+      }
+    });
+  });
+</script>
+</body>
+</html>
