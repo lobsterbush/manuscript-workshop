@@ -15,7 +15,8 @@ Workshop slides on preparing and submitting manuscripts to academic journals in 
 - **Topics:** Understanding rankings and strategies, writing for the selected journal, submission process, dealing with rejections
 
 ## Files
-- `slides.html` — Reveal.js presentation (open in browser, navigate with arrow keys)
+- `index.html` — Password gate (deployed via GitHub Pages)
+- `5f80c8e3faa99b55.html` — Reveal.js presentation (password: erdos)
 
 ## Presentation
-Open `slides.html` in any browser. Navigate with arrow keys. Press `Esc` for overview. Timers are clickable.
+Visit the GitHub Pages URL and enter the workshop password. Navigate with arrow keys. Press `Esc` for overview. Timers are clickable.

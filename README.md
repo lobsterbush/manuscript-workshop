@@ -4,7 +4,7 @@ Workshop materials for a session on preparing and submitting manuscripts to acad
 
 ## Authors
 
-- **Charles Crabtree**, Senior Lecturer, School of Social Sciences, Monash University & K-Club Professor, University College, Korea University
+- **Charles Crabtree**, Senior Lecturer, School of Social Sciences, Monash University
 - **Megan A. Farrelly**, Professor of Environmental Geography & Associate Dean of Graduate Research, Faculty of Arts, Monash University
 
 ## Overview
@@ -22,7 +22,7 @@ A 3-hour workshop (14:00–17:00, Thursday 12 March 2026) covering:
 
 ## Viewing the Slides
 
-Open `slides.html` in any browser. Navigate with arrow keys. Press `Esc` for slide overview. Clickable timers for exercises.
+The slides are hosted at the GitHub Pages URL for this repository (password-protected). Navigate with arrow keys. Press `Esc` for slide overview. Clickable timers for exercises.
 
 ## Replication
 
