@@ -7,7 +7,7 @@ Active
 Workshop slides on preparing and submitting manuscripts to academic journals in the social sciences.
 
 ## Authors
-- Charles Crabtree, Senior Lecturer, School of Social Sciences, Monash University & K-Club Professor, University College, Korea University
+- Charles Crabtree, Senior Lecturer, School of Social Sciences, Monash University
 - Megan A. Farrelly, Professor of Environmental Geography & Associate Dean of Graduate Research, Faculty of Arts, Monash University
 
 ## Workshop Details
