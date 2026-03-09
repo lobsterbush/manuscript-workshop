@@ -541,18 +541,30 @@
 <section>
   <p class="label">Rankings</p>
   <h2>Journal metrics: a field guide</h2>
-  <div class="grid-3" style="margin-top: 0.8em;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; margin-top: 0.8em; font-size: 0.92em;">
     <div class="card" style="border-left: 4px solid var(--accent);">
-      <h3 style="font-size: 1.05em; color: var(--accent); margin-bottom: 0.5em;">Impact Factor</h3>
-      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Average citations over 2 years. From Clarivate/Web of Science. The most widely cited metric, but favours certain fields.</p>
+      <h3 style="font-size: 1em; color: var(--accent); margin-bottom: 0.3em;">Impact Factor</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Average citations over 2 years. From Clarivate/Web of Science. Most widely cited, but favours certain fields.</p>
     </div>
     <div class="card" style="border-left: 4px solid var(--green);">
-      <h3 style="font-size: 1.05em; color: var(--green); margin-bottom: 0.5em;">SJR / Scopus</h3>
-      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Weighted citations over 3 years. Considers prestige of citing journal. Broader coverage than JCR.</p>
+      <h3 style="font-size: 1em; color: var(--green); margin-bottom: 0.3em;">SJR / Scopus</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Weighted citations over 3 years. Considers prestige of citing journal. Broader coverage than JCR.</p>
     </div>
     <div class="card" style="border-left: 4px solid #A855F7;">
-      <h3 style="font-size: 1.05em; color: #A855F7; margin-bottom: 0.5em;">h5-index</h3>
-      <p style="font-size: 0.9em; color: var(--text-muted); margin: 0;">Google Scholar metric: h papers with h+ citations in 5 years. Good for emerging or interdisciplinary journals.</p>
+      <h3 style="font-size: 1em; color: #A855F7; margin-bottom: 0.3em;">h5-index</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Google Scholar metric: h papers with h+ citations in 5 years. Good for emerging or interdisciplinary journals.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--orange);">
+      <h3 style="font-size: 1em; color: var(--orange); margin-bottom: 0.3em;">Quartile Ranking</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Q1–Q4 based on Impact Factor or SJR within a field. Q1 = top 25%. Quick shorthand for journal standing.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3 style="font-size: 1em; color: var(--red); margin-bottom: 0.3em;">CiteScore</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Scopus metric: citations over 4 years divided by documents. Wider publication window than Impact Factor.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid #0891B2;">
+      <h3 style="font-size: 1em; color: #0891B2; margin-bottom: 0.3em;">FWCI</h3>
+      <p style="font-size: 0.85em; color: var(--text-muted); margin: 0;">Field-Weighted Citation Impact. Normalises citations by discipline, year, and document type. 1.0 = world average.</p>
     </div>
   </div>
   <div class="callout fragment" style="margin-top: 1.2em;">
@@ -571,6 +583,7 @@
     <li class="fragment"><strong>Acceptance rate</strong> — Top generalists reject 90–95%. Field journals: 70–85%</li>
     <li class="fragment"><strong>Open access options</strong> — Does it offer OA? At what cost? Does your institution have an agreement?</li>
     <li class="fragment"><strong>Reputation among peers</strong> — Ask your advisors and co-authors where they'd send this paper</li>
+    <li class="fragment"><strong>Open calls for papers</strong> — Special issues can be excellent fits, but vet the editors and timeline carefully</li>
   </ul>
 </section>
 
@@ -691,6 +704,179 @@
   </div>
 </section>
 
+<!-- IDENTIFYING THE GAP -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Identifying the gap</h2>
+  <p>Every publishable paper addresses a gap. Name yours explicitly.</p>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8em; margin-top: 0.8em; font-size: 0.9em;">
+    <div class="card fragment" style="border-top: 3px solid var(--accent);">
+      <h3 style="font-size: 0.95em; color: var(--accent); margin: 0 0 0.3em;">Evidence</h3>
+      <p style="font-size: 0.8em; color: var(--text-muted); margin: 0;">Contradictory findings that need resolution</p>
+    </div>
+    <div class="card fragment" style="border-top: 3px solid var(--green);">
+      <h3 style="font-size: 0.95em; color: var(--green); margin: 0 0 0.3em;">Knowledge</h3>
+      <p style="font-size: 0.8em; color: var(--text-muted); margin: 0;">A phenomenon not yet studied</p>
+    </div>
+    <div class="card fragment" style="border-top: 3px solid var(--orange);">
+      <h3 style="font-size: 0.95em; color: var(--orange); margin: 0 0 0.3em;">Practical</h3>
+      <p style="font-size: 0.8em; color: var(--text-muted); margin: 0;">Disconnect between research and practice</p>
+    </div>
+    <div class="card fragment" style="border-top: 3px solid var(--red);">
+      <h3 style="font-size: 0.95em; color: var(--red); margin: 0 0 0.3em;">Methodological</h3>
+      <p style="font-size: 0.8em; color: var(--text-muted); margin: 0;">Current methods are inadequate</p>
+    </div>
+    <div class="card fragment" style="border-top: 3px solid #A855F7;">
+      <h3 style="font-size: 0.95em; color: #A855F7; margin: 0 0 0.3em;">Empirical</h3>
+      <p style="font-size: 0.8em; color: var(--text-muted); margin: 0;">Theory lacks empirical verification</p>
+    </div>
+    <div class="card fragment" style="border-top: 3px solid #0891B2;">
+      <h3 style="font-size: 0.95em; color: #0891B2; margin: 0 0 0.3em;">Theoretical</h3>
+      <p style="font-size: 0.8em; color: var(--text-muted); margin: 0;">Theory cannot explain observations</p>
+    </div>
+    <div class="card fragment" style="border-top: 3px solid #D946EF;">
+      <h3 style="font-size: 0.95em; color: #D946EF; margin: 0 0 0.3em;">Population</h3>
+      <p style="font-size: 0.8em; color: var(--text-muted); margin: 0;">Underrepresented groups or regions</p>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 0.8em;">
+    <p><strong>Your introduction should name the gap clearly.</strong> Reviewers want to know in the first two pages what’s missing and why your paper fills it.</p>
+  </div>
+  <p style="font-size: 0.7em; color: var(--text-muted); margin-top: 0.5em;">Adapted from Miles (2017)</p>
+</section>
+
+<!-- THREE FORMS OF NOVELTY -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Framing your contribution</h2>
+  <p>Your paper should offer at least one form of novelty:</p>
+  <div class="grid-3" style="margin-top: 0.8em;">
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <h3 style="font-size: 1.05em; color: var(--accent); margin-bottom: 0.5em;">Theoretical</h3>
+      <ul style="font-size: 0.85em; padding-left: 1em;">
+        <li>Invent a new concept</li>
+        <li>Synthesise existing concepts in new ways</li>
+        <li>Test different theories / triangulation</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h3 style="font-size: 1.05em; color: var(--green); margin-bottom: 0.5em;">Methodological</h3>
+      <ul style="font-size: 0.85em; padding-left: 1em;">
+        <li>Mixed or multi-methods</li>
+        <li>Longitudinal research designs</li>
+        <li>New analytical approaches</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left: 4px solid #A855F7;">
+      <h3 style="font-size: 1.05em; color: #A855F7; margin-bottom: 0.5em;">Empirical</h3>
+      <ul style="font-size: 0.85em; padding-left: 1em;">
+        <li>New contexts, regions, or cases</li>
+        <li>Data from understudied populations</li>
+        <li>New evidence (big data, archives, etc.)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p><strong>State your novelty in the introduction.</strong> Reviewers should know within the first two pages what makes this paper new.</p>
+  </div>
+  <p style="font-size: 0.7em; color: var(--text-muted); margin-top: 0.5em;">Source: Sovacool et al. (2018)</p>
+</section>
+
+<!-- TYPES OF ACADEMIC PROSE -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Types of academic prose</h2>
+  <p>Published papers move beyond description. Know where your writing sits:</p>
+  <div style="margin-top: 1em;">
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num" style="background: var(--border); color: var(--text);">1</span>
+      <div>
+        <strong>Descriptive</strong>
+        <p style="margin: 0.2em 0 0; font-size: 0.9em;">Presents facts or information. A summary of findings or a report of results.</p>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num" style="background: var(--orange);">2</span>
+      <div>
+        <strong>Analytical</strong>
+        <p style="margin: 0.2em 0 0; font-size: 0.9em;">Reorganises facts into categories, patterns, and relationships defined by your discipline.</p>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num" style="background: var(--accent);">3</span>
+      <div>
+        <strong>Persuasive</strong>
+        <p style="margin: 0.2em 0 0; font-size: 0.9em;">Adds your own point of view. Each claim is supported by evidence. Drives the discussion and conclusion.</p>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
+      <span class="step-num" style="background: var(--green);">4</span>
+      <div>
+        <strong>Critical</strong>
+        <p style="margin: 0.2em 0 0; font-size: 0.9em;">Considers multiple viewpoints, evaluates merits, identifies strengths and weaknesses. The highest level.</p>
+      </div>
+    </div>
+  </div>
+  <div class="callout-green callout fragment" style="margin-top: 0.5em;">
+    <p><strong>Aim for analytical and critical prose.</strong> Pure description is necessary in methods and results, but your discussion must be critical.</p>
+  </div>
+</section>
+
+<!-- STRUCTURING PARAGRAPHS: THE UNEVEN U -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Structuring paragraphs: the Uneven U</h2>
+  <p>Hayot (2014) identifies five levels of sentences. Strong paragraphs follow an arc:</p>
+  <div style="display: flex; align-items: flex-end; justify-content: center; gap: 0.6em; margin: 1.2em auto; max-width: 1050px; height: 300px;">
+    <div class="fragment" style="display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted); text-align: center; width: 120px;">Abstract, general</span>
+      <div style="width: 120px; height: 240px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 1.8em;">5</span>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted); text-align: center; width: 120px;">Problem-oriented</span>
+      <div style="width: 120px; height: 175px; background: rgba(0, 109, 174, 0.7); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 1.8em;">4</span>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted); text-align: center; width: 120px;">Conceptual summary</span>
+      <div style="width: 120px; height: 115px; background: rgba(0, 109, 174, 0.5); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 1.6em;">3</span>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted); text-align: center; width: 120px;">Evidence &amp; data</span>
+      <div style="width: 120px; height: 55px; background: rgba(0, 109, 174, 0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: var(--accent); font-weight: 600; font-size: 1.2em;">1–2</span>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted); text-align: center; width: 120px;">Conceptual summary</span>
+      <div style="width: 120px; height: 115px; background: rgba(74, 155, 103, 0.5); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 1.6em;">3</span>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted); text-align: center; width: 120px;">Solution-oriented</span>
+      <div style="width: 120px; height: 190px; background: rgba(74, 155, 103, 0.7); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 1.8em;">4</span>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted); text-align: center; width: 120px;">Conclusion</span>
+      <div style="width: 120px; height: 260px; background: var(--green); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 1.8em;">5</span>
+      </div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top: 0.5em;">
+    <p><strong>Open with a claim (5), descend into evidence (1–2), then rise to a new conclusion (5).</strong> This “U” shape gives paragraphs narrative momentum.</p>
+  </div>
+  <p style="font-size: 0.7em; color: var(--text-muted); margin-top: 0.3em;">Source: Hayot (2014), <em>Elements of Academic Style</em>. See also: <a href="https://thesiswhisperer.com/2019/02/13/the-uneven-u/" target="_blank" style="color: var(--accent);">Thesis Whisperer</a></p>
+</section>
+
 <!-- MANUSCRIPT STRUCTURE -->
 <section>
   <p class="label">Writing</p>
@@ -762,15 +948,18 @@
       </ul>
     </div>
     <div>
-      <h3 style="color: var(--green);">Abstract</h3>
-      <ul>
-        <li>State the research question first</li>
-        <li>Name the method and data</li>
-        <li>Report the key finding</li>
-        <li>State the implication</li>
-        <li>Stay under word limit (usually 150–250)</li>
-      </ul>
+      <h3 style="color: var(--green);">Abstract (5 elements)</h3>
+      <ol style="font-size: 0.9em;">
+        <li>The <strong>problem</strong> — context and hook</li>
+        <li>The <strong>purpose</strong> — research question</li>
+        <li>The <strong>method</strong> — how the study was done</li>
+        <li>The <strong>finding</strong> — key results</li>
+        <li>The <strong>significance</strong> — what it means</li>
+      </ol>
     </div>
+  </div>
+  <div class="callout-green callout fragment" style="margin-top: 1em;">
+    <p><strong>The 4Cs:</strong> A good abstract is <strong>Clear</strong>, <strong>Concise</strong>, <strong>Convincing</strong>, and <strong>Cohesive</strong>. Every word should earn its place.</p>
   </div>
 </section>
 
@@ -810,6 +999,23 @@
     <li class="fragment"><strong>Separate title page</strong> — author info, affiliations, acknowledgments on a separate file</li>
     <li class="fragment"><strong>Check supplementary materials</strong> — code files, data documentation may reveal identity</li>
   </ul>
+</section>
+
+<!-- REVISION AND PROOFREADING -->
+<section>
+  <p class="label">Writing</p>
+  <h2>Revision and proofreading</h2>
+  <p>Writing is rewriting. Build revision into your process, not the end.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Take a break</strong> — even one day away gives you fresh eyes. Distance improves judgment.</li>
+    <li class="fragment"><strong>Check coherence</strong> — does every paragraph serve the argument? Cut what doesn’t.</li>
+    <li class="fragment"><strong>Check adherence to guidelines</strong> — word count, formatting, citation style.</li>
+    <li class="fragment"><strong>Proofread for grammar and typos</strong> — these signal carelessness to reviewers.</li>
+    <li class="fragment"><strong>Read aloud</strong> — awkward sentences reveal themselves when spoken.</li>
+  </ul>
+  <div class="callout-green callout fragment" style="margin-top: 1em;">
+    <p><strong>Pro tip:</strong> Get a colleague to read your paper before submission. Fresh readers catch what you’ve become blind to.</p>
+  </div>
 </section>
 
 <!-- COMMON FORMATTING PITFALLS -->
@@ -880,11 +1086,98 @@
   </ul>
 </section>
 
+<!-- AUTHORSHIP AND ATTRIBUTION -->
+<section>
+  <p class="label">Submission</p>
+  <h2>Authorship and attribution</h2>
+  <p>Agree on authorship <em>before</em> you start writing, not after.</p>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <h3 style="color: var(--accent);">Who qualifies as an author?</h3>
+      <ul style="font-size: 0.9em;">
+        <li class="fragment">Significant contribution to <strong>conception and design</strong></li>
+        <li class="fragment">Non-routine <strong>data collection</strong> requiring intellectual input</li>
+        <li class="fragment"><strong>Analysis or interpretation</strong> of data</li>
+        <li class="fragment"><strong>Drafting or critical revision</strong> of the manuscript</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--green);">Key principles</h3>
+      <ul style="font-size: 0.9em;">
+        <li class="fragment">No automatic authorship for supervisors</li>
+        <li class="fragment">Use written authorship agreements</li>
+        <li class="fragment">All co-authors must approve the final manuscript</li>
+        <li class="fragment">Know your institution’s policy and dispute resolution process</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout-warn callout fragment" style="margin-top: 1em;">
+    <p><strong>Have the conversation early.</strong> Authorship disputes are among the most common and damaging conflicts in academia. A written agreement prevents most of them.</p>
+  </div>
+</section>
+
+<!-- THE COLLABORATION SPECTRUM -->
+<section>
+  <p class="label">Submission</p>
+  <h2>The collaboration spectrum</h2>
+  <p>Not all co-authorship is equal. Where does your collaboration sit?</p>
+  <div style="display: flex; align-items: flex-end; gap: 0.5em; margin: 1.5em 0; max-width: 1100px; height: 300px;">
+    <div class="fragment" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted);">Distrust</span>
+      <div style="width: 100%; height: 50px; background: var(--red); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 0.75em;">Corrosion</span>
+      </div>
+    </div>
+    <div class="fragment" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted);">&nbsp;</span>
+      <div style="width: 100%; height: 95px; background: var(--orange); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 0.75em;">Co-existence</span>
+      </div>
+    </div>
+    <div class="fragment" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted);">&nbsp;</span>
+      <div style="width: 100%; height: 140px; background: #d4a017; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 0.75em;">Co-ordination</span>
+      </div>
+    </div>
+    <div class="fragment" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted);">&nbsp;</span>
+      <div style="width: 100%; height: 185px; background: rgba(74, 155, 103, 0.7); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 0.75em;">Cooperation</span>
+      </div>
+    </div>
+    <div class="fragment" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted);">&nbsp;</span>
+      <div style="width: 100%; height: 230px; background: var(--green); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 0.75em;">Co-creation</span>
+      </div>
+    </div>
+    <div class="fragment" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3em;">
+      <span style="font-size: 0.65em; color: var(--text-muted);">High trust</span>
+      <div style="width: 100%; height: 275px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #fff; font-weight: 600; font-size: 0.7em; text-align: center; line-height: 1.3;">Collective<br>Capacity</span>
+      </div>
+    </div>
+  </div>
+  <div class="callout fragment">
+    <p><strong>The best co-authorship lives in co-creation territory</strong> — shared intellectual ownership, genuine knowledge integration, and trust built through iterative drafting.</p>
+  </div>
+  <p style="font-size: 0.7em; color: var(--text-muted); margin-top: 0.3em;">Adapted from Ezard, <em>Collaboration Continuum</em></p>
+</section>
+
 <!-- WHAT HAPPENS AFTER -->
 <section>
   <p class="label">Submission</p>
   <h2>What happens after you submit</h2>
-  <div style="margin-top: 1em;">
+  <div style="display: flex; align-items: center; gap: 0; margin-bottom: 1em; font-size: 0.7em;">
+    <div style="background: var(--accent); color: #fff; padding: 0.5em 1em; border-radius: 6px 0 0 6px; text-align: center; flex: 1;"><strong>Submit</strong></div>
+    <div style="background: rgba(0,109,174,0.8); color: #fff; padding: 0.5em 0.6em; text-align: center; flex: 1;"><strong>Assign editor</strong></div>
+    <div style="background: rgba(0,109,174,0.6); color: #fff; padding: 0.5em 0.6em; text-align: center; flex: 1;"><strong>Triage</strong></div>
+    <div style="background: rgba(74,155,103,0.6); color: #fff; padding: 0.5em 0.6em; text-align: center; flex: 1;"><strong>Peer review</strong></div>
+    <div style="background: rgba(74,155,103,0.8); color: #fff; padding: 0.5em 0.6em; text-align: center; flex: 1;"><strong>Editor assesses</strong></div>
+    <div style="background: var(--green); color: #fff; padding: 0.5em 1em; border-radius: 0 6px 6px 0; text-align: center; flex: 1;"><strong>Decision</strong></div>
+  </div>
+  <div>
     <div class="fragment" style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
       <span class="step-num">1</span>
       <span><strong>Editorial triage</strong> — Editor-in-chief checks scope and quality. 25–60% of papers are desk rejected at this stage. Days to weeks.</span>
@@ -925,6 +1218,25 @@
   <div class="callout fragment" style="margin-top: 1.2em;">
     <p>An R&R is <strong>not a rejection</strong>. Strategically revised R&R papers have high acceptance rates. Treat it as an investment, not a burden.</p>
   </div>
+</section>
+
+<!-- WHAT GOOD REVIEWERS DO -->
+<section>
+  <p class="label">Submission</p>
+  <h2>What good reviewers do</h2>
+  <p>Understanding reviewer expectations helps you write for them — and interpret their feedback.</p>
+  <ul style="margin-top: 0.8em;">
+    <li class="fragment"><strong>Assess novelty, rigor, and style</strong> — judge the paper on its own terms</li>
+    <li class="fragment"><strong>Embrace interdisciplinarity</strong> — avoid disciplinary dogma</li>
+    <li class="fragment"><strong>Be constructive</strong> — collegiate language, actionable suggestions</li>
+    <li class="fragment"><strong>Respect editorial screens</strong> — defer to the editor on journal fit</li>
+    <li class="fragment"><strong>Commit to reviewing revisions</strong> — follow through on the full cycle</li>
+    <li class="fragment"><strong>Meet deadlines</strong> — delays cascade through the entire process</li>
+  </ul>
+  <div class="callout fragment" style="margin-top: 1em;">
+    <p><strong>Becoming a reviewer makes you a better author.</strong> You learn to see manuscripts the way editors do. Volunteer to review when opportunities arise.</p>
+  </div>
+  <p style="font-size: 0.7em; color: var(--text-muted); margin-top: 0.5em;">Based on Sovacool et al. (2022)</p>
 </section>
 
 <!-- ============================================================ -->
@@ -1019,6 +1331,69 @@
         <p style="margin: 0.3em 0 0; color: var(--text-secondary);">Caution: next journal = different reviewers = different preferences. Overfitting to one set of comments produces incoherent work that satisfies no one.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- THE REVISION CHECKLIST -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>The revision checklist</h2>
+  <p>When you get an R&R (or decide to revise after rejection), work systematically:</p>
+  <div style="margin-top: 1em;">
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">1</span>
+      <div>
+        <strong>Theme</strong>
+        <p style="margin: 0.3em 0 0; color: var(--text-secondary);">Group reviewer comments by topic. Identify overlapping concerns across reviewers.</p>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">2</span>
+      <div>
+        <strong>Prioritise</strong>
+        <p style="margin: 0.3em 0 0; color: var(--text-secondary);">Address structural and methodological concerns first. Minor wording suggestions last.</p>
+      </div>
+    </div>
+    <div class="fragment" style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 1em;">
+      <span class="step-num">3</span>
+      <div>
+        <strong>Set deadlines</strong>
+        <p style="margin: 0.3em 0 0; color: var(--text-secondary);">Time-bound each revision task. Most journals expect R&R turnaround within 3–6 months.</p>
+      </div>
+    </div>
+  </div>
+  <div class="callout-warn callout fragment" style="margin-top: 0.5em;">
+    <p><strong>Details matter in resubmission:</strong> reference formatting, punctuation, capitalisation, table/figure formatting. Follow the journal guidelines precisely.</p>
+  </div>
+</section>
+
+<!-- RESPONDING TO REVIEWERS -->
+<section>
+  <p class="label">Rejection</p>
+  <h2>Responding to reviewers</h2>
+  <p>Your response letter is as important as your revised manuscript. Tone matters.</p>
+  <div class="cols" style="margin-top: 0.8em;">
+    <div>
+      <h3 style="color: var(--green);">Good responses</h3>
+      <ul style="font-size: 0.9em;">
+        <li class="fragment">“We thank the reviewer for this suggestion…”</li>
+        <li class="fragment">“The reviewer correctly pointed out that…”</li>
+        <li class="fragment">“We acknowledge this limitation. We have addressed it by…”</li>
+        <li class="fragment">“We concur with Reviewer #1; nonetheless…”</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--red);">Poor responses</h3>
+      <ul style="font-size: 0.9em;">
+        <li class="fragment">“The reviewers do not understand our point…”</li>
+        <li class="fragment">“It would not be necessary to change…”</li>
+        <li class="fragment">“We simply do not have such data…”</li>
+        <li class="fragment">“Repeating the analysis would not change anything…”</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout-green callout fragment" style="margin-top: 1em;">
+    <p><strong>Even when you disagree, be respectful.</strong> Explain your reasoning clearly. Editors notice tone — and a constructive disagreement can strengthen your paper.</p>
   </div>
 </section>
 
@@ -1154,19 +1529,24 @@
   <h2>Further reading</h2>
   <div class="cols" style="margin-top: 0.8em;">
     <div>
-      <h3 style="color: var(--accent);">On writing and submission</h3>
-      <ul style="font-size: 0.9em;">
+      <h3 style="color: var(--accent);">On writing and craft</h3>
+      <ul style="font-size: 0.85em;">
         <li>Belcher, W. L. <em>Writing Your Journal Article in Twelve Weeks</em></li>
         <li>Silvia, P. J. <em>How to Write a Lot</em></li>
+        <li>Hayot, E. (2014). <em>Elements of Academic Style</em></li>
         <li>Sage: <a href="https://www.sagepub.com/journals/information-for-authors/preparing-your-manuscript" target="_blank" style="color: var(--accent);">Preparing Your Manuscript</a></li>
+        <li><a href="https://thesiswhisperer.com/2019/02/13/the-uneven-u/" target="_blank" style="color: var(--accent);">Thesis Whisperer: The Uneven U</a></li>
       </ul>
     </div>
     <div>
-      <h3 style="color: var(--green);">On rejection and resilience</h3>
-      <ul style="font-size: 0.9em;">
-        <li>Sword, H. <em>Air & Light & Time & Space: How Successful Academics Write</em></li>
+      <h3 style="color: var(--green);">On publishing and peer review</h3>
+      <ul style="font-size: 0.85em;">
+        <li>Sword, H. <em>Air & Light & Time & Space</em></li>
         <li>Thomson, P. & Kamler, B. <em>Writing for Peer Reviewed Journals</em></li>
-        <li>Walker (2018). Rejection of a manuscript and career resilience. <em>PS</em></li>
+        <li>Miles (2017). Research gaps taxonomy</li>
+        <li>Sovacool et al. (2018). Forms of novelty</li>
+        <li>Sovacool et al. (2022). Codes of practice for peer review. <em>ERSS</em></li>
+        <li>Walker (2018). Rejection and career resilience. <em>PS</em></li>
       </ul>
     </div>
   </div>
